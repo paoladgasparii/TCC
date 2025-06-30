@@ -38,30 +38,31 @@
             </div>
           </header>
     <form
-      action="https://formsubmit.co/ajax/nickolas@tigercodes.com.br"
+      action=""
       method="POST"
       data-form
     >
 
-    <label for="tema">Tema</label>
-    <select type="text" name="tema" id="tema" required
-    class="form-select" aria-label="Default select example">
-      <option value="1">Desafios para a valorização da herança africana no Brasil</option>
-      <option value="2">Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil</option>
-      <option value="3">Desafios para a valorização de comunidades e povos tradicionais no Brasil</option>
-      <option value="4">Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil</option>
-      <option value="5">O estigma associado às doenças mentais na sociedade brasileira</option>
-      <option value="6">Democratização do acesso ao cinema no Brasil</option>
-      <option value="7">Manipulação do comportamento do usuário pelo controle de dados na internet</option>
-      <option value="8">Desafios para a formação educacional de surdos no Brasil</option>
-      <option value="9">Caminhos para combater a intolerância religiosa no Brasil</option>
-      <option value="10">A persistência da violência contra a mulher na sociedade brasileira</option>
-      <option value="11">Publicidade infantil em questão no Brasil</option>
-    </select>
-      <label for="titulo">Título</label>
-      <input type="text" name="titulo" id="titulo" placeholder="(Opcional)">
-      <label for="mensagem">Redação</label>
-      <textarea name="mensagem" id="mensagem" placeholder="Escreva aqui sua redação ..." required></textarea>
+    <label for="list">Tema</label>
+    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Escolha o tema" name="list" required>
+    <datalist id="datalistOptions">
+      <option value="Desafios para a valorização da herança africana no Brasil"></option>
+      <option value="Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil"></option>
+      <option value="Desafios para a valorização de comunidades e povos tradicionais no Brasil"></option>
+      <option value="Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil"></option>
+      <option value="O estigma associado às doenças mentais na sociedade brasileir"></option>
+      <option value="Democratização do acesso ao cinema no Brasil"></option>
+      <option value="Manipulação do comportamento do usuário pelo controle de dados na internet"></option>
+      <option value="Desafios para a formação educacional de surdos no Brasil"></option>
+      <option value="Caminhos para combater a intolerância religiosa no Brasil"></option>
+      <option value="A persistência da violência contra a mulher na sociedade brasileira"></option>
+      <option value="Publicidade infantil em questão no Brasil"></option>
+      </datalist>
+      
+      <label for="name">Título</label>
+      <input type="text" name="name" placeholder="(Opcional)">
+      <label for="message">Redação</label>
+      <textarea name="message"  placeholder="Escreva aqui sua redação..." required></textarea>
       <button type="submit" data-button>Enviar</button>
     </form>
   </main>    
