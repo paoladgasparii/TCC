@@ -27,10 +27,10 @@
 
       <div class="links">
         <ul>
-          <li><a href="inicio.html">Início</a></li>
-          <li><a href="aulas.html">Vídeoaulas</a></li>
-          <li><a href="temas.html">Temas</a></li>
-          <li><a href="correcao.html">Correção</a></li>
+          <li><a href="inicio.php">Início</a></li>
+          <li><a href="aulas.php">Vídeoaulas</a></li>
+          <li><a href="temas.php">Temas</a></li>
+          <li><a href="correcao.php">Correção</a></li>
           <li><a href="">Histórico</a></li>
         </ul>
       </div>
@@ -60,7 +60,7 @@
             <h2 class="name">Enem 2024</h2>
             <p class="description">Tema: Desafios para a valorização da herança africana no Brasil.</p>
 
-            <a href='temas html/herancaafricana.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/herancaafricana.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -76,7 +76,7 @@
             <h2 class="name">Enem 2023</h2>
             <p class="description">Tema: Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil.</p>
 
-            <a href='temas html/invibilidademulher.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/invibilidademulher.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -92,7 +92,7 @@
             <h2 class="name">Enem 2022</h2>
             <p class="description">Tema: Os desafios para a valorização de comunidades e povos tradicionais no Brasil.</p>
 
-            <a href='temas html/comunidadestradicionais.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/comunidadestradicionais.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -108,7 +108,7 @@
             <h2 class="name">Enem 2021</h2>
             <p class="description">Tema: Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil.</p>
 
-            <a href='temas html/registrocivil.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/registrocivil.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -124,7 +124,7 @@
             <h2 class="name">Enem 2020</h2>
             <p class="description">Tema: O estigma associado às doenças mentais na sociedade brasileira.</p>
 
-            <a href='temas html/doencasmentais.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/doencasmentais.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -140,7 +140,7 @@
             <h2 class="name">Enem 2019</h2>
             <p class="description">Tema: Democratização do acesso ao cinema no Brasil.</p>
 
-            <a href='temas html/acessoaocinema.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/acessoaocinema.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -156,7 +156,7 @@
             <h2 class="name">Enem 2018</h2>
             <p class="description">Tema: Manipulação do comportamento de usuário pelo controle de dados na internet.</p>
 
-            <a href='temas html/manipulacaointernet.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/manipulacaointernet.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -172,7 +172,7 @@
             <h2 class="name">Enem 2017</h2>
             <p class="description">Tema: Desafios para a formação educacional de surdos no Brasil.</p>
 
-            <a href='temas html/formacaosurdos.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/formacaosurdos.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -188,7 +188,7 @@
             <h2 class="name">Enem 2016</h2>
             <p class="description">Tema: Caminhos para combater a intolerância religiosa no Brasil.</p>
 
-            <a href='temas html/intoleranciareligiosa.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/intoleranciareligiosa.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -204,7 +204,7 @@
             <h2 class="name">Enem 2015</h2>
             <p class="description">Tema: A persistência da violência contra a mulher na sociedade brasileira.</p>
 
-            <a href='temas html/violenciamulher.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/violenciamulher.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
         <div class="card swiper-slide">
@@ -220,7 +220,7 @@
             <h2 class="name">Enem 2014</h2>
             <p class="description">Tema: Publicidade infantil em questão no Brasil.</p>
 
-            <a href='temas html/publicidadeinfantil.html'><button class="button" href="herancaafricana.html">Ver tema</button></a>
+            <a href='temas php/publicidadeinfantil.php'><button class="button" href="herancaafricana.php">Ver tema</button></a>
           </div>
         </div>
 

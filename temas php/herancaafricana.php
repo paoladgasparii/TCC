@@ -122,7 +122,7 @@
                 Acesso em: 29 maio 2024 (adaptado).</p>
                 <br>
         
-            <button class="button"><a href="..\correcao.html">Enviar Redação</a></button>
+            <button class="button"><a href="..\correcao.php">Enviar Redação</a></button>
         </div>
     </div>
 

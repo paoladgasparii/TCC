@@ -22,10 +22,10 @@
     
               <div class="links">
                 <ul>
-                  <li><a href="inicio.html">Início</a></li>
-                  <li><a href="aulas.html">Vídeoaulas</a></li>
-                  <li><a href="temas.html">Temas</a></li>
-                  <li><a href="correcao.html">Correção</a></li>
+                  <li><a href="inicio.php">Início</a></li>
+                  <li><a href="aulas.php">Vídeoaulas</a></li>
+                  <li><a href="temas.php">Temas</a></li>
+                  <li><a href="correcao.php">Correção</a></li>
                   <li><a href="">Histórico</a></li>
                 </ul>
               </div>

@@ -72,7 +72,7 @@
                 <p class="font">Disponível em: https://issuu.com/pesquisafapesp/docs/pesquisa_299</p>
             </p><br>
 
-            <button class="button"><a href="..\correcao.html">Enviar Redação</a></button>
+            <button class="button"><a href="..\correcao.php">Enviar Redação</a></button>
         </div>
     </div>
 

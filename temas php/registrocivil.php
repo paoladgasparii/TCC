@@ -84,7 +84,7 @@
 
             <p class="font">Disponível em: https://www.ufrgs.br/humanista/2018/07/16/brasil-esta-proximo-de-erradicar-o-subregistro-civil-de-nascimentos/ <br><br></p>
 
-            <button class="button"><a href="..\correcao.html">Enviar Redação</a></button>
+            <button class="button"><a href="..\correcao.php">Enviar Redação</a></button>
         </div>
     </div>
 

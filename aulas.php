@@ -26,10 +26,10 @@
 
           <div class="links">
             <ul>
-              <li><a href="inicio.html">Início</a></li>
-              <li><a href="aulas.html">Vídeoaulas</a></li>
-              <li><a href="temas.html">Temas</a></li>
-              <li><a href="correcao.html">Correção</a></li>
+              <li><a href="inicio.php">Início</a></li>
+              <li><a href="aulas.php">Vídeoaulas</a></li>
+              <li><a href="temas.php">Temas</a></li>
+              <li><a href="correcao.php">Correção</a></li>
               <li><a href="">Histórico</a></li>
             </ul>
           </div>
@@ -49,7 +49,7 @@
         <div class="card-content">
 
           <div class="card">
-            <a href="aulas html/aula1.html">
+            <a href="aulas php/aula1.php">
             <div class="card-body">
               <div class="icon-container">
                 <i class="bi bi-play-circle-fill"></i> 00:00

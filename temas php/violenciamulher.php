@@ -61,7 +61,7 @@
 
             <br>
 
-            <button class="button"><a href="..\correcao.html">Enviar Redação</a></button>
+            <button class="button"><a href="..\correcao.php">Enviar Redação</a></button>
         </div>
     </div>
 

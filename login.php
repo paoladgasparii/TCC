@@ -12,7 +12,7 @@
   <body>
     <div class="container">
         <div class="form-box login">
-            <form action="login.html" method="POST">
+            <form action="login.php" method="POST">
                 <h1>Login</h1>
                 <div class="input-box">
                   <input type="text" name="name" placeholder="Usuário" 
@@ -32,12 +32,12 @@
               <div class="forgot-link">
                 <a href="">Esqueceu a senha?</a>
               </div>
-              <button type="submit" class="bottom">Login</button>
+              <button type="submit" class="bottom">Entrar</button>
             </form>
         </div>
 
             <div class="form-box register">
-              <form action="login.html" method="POST">
+              <form action="login.php" method="POST">
                 <h1>Cadastro</h1>
                 <div class="input-box">
                   <input type="text" name="name" placeholder="Usuário" required>
@@ -51,7 +51,7 @@
                   <input type="password" name="password" placeholder="Senha" required>
                   <i class='bx bxs-lock-alt'></i>
                 </div>
-                <button type="submit" class="bottom">Cadastre-se</button>
+                <button type="submit" class="bottom">Entrar</button>
               </form>
             </div>
            

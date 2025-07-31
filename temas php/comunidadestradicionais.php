@@ -99,7 +99,7 @@
 
             <p class="font">Disponível em: https://s3.amazonaws.com. Acesso em: 17 jun. 2022 (adaptado). <br><br></p>
 
-            <button class="button"><a href="..\correcao.html">Enviar Redação</a></button>
+            <button class="button"><a href="..\correcao.php">Enviar Redação</a></button>
         </div>
     </div>
 
