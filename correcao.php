@@ -4,67 +4,107 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Corrija Aí</title>
+    <title>Corrija Aí - Correção</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="stylecorrecao.css" />
     <script defer src="scriptcorrecao.js"></script>
-
   </head>
+  
   <body>
     <main>
-        <div class="big-wrapper light">
-          <img src="./img/shape.png" alt="" class="shape" />
-    
-          <header>
-            <div class="container1">
-              <div class="logo">
-                <img src="logo.png" alt="Logo" />
-              </div>
-    
-              <div class="links">
-                <ul>
-                  <li><a href="inicio.php">Início</a></li>
-                  <li><a href="aulas.php">Vídeoaulas</a></li>
-                  <li><a href="temas.php">Temas</a></li>
-                  <li><a href="correcao.php">Correção</a></li>
-                  <li><a href="">Histórico</a></li>
-                </ul>
-              </div>
-    
-              <div class="overlay"></div>
-    
-              <div class="hamburger-menu">
-                <div class="bar"></div>
-              </div>
-            </div>
-          </header>
-    <form
-      action=""
-      method="POST"
-      data-form
-    >
+      <div class="big-wrapper light">
+        <img src="./img/shape.png" alt="" class="shape" />
 
-    <label for="list">Tema</label>
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Escolha o tema" name="list" required>
-    <datalist id="datalistOptions">
-      <option value="Desafios para a valorização da herança africana no Brasil"></option>
-      <option value="Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil"></option>
-      <option value="Desafios para a valorização de comunidades e povos tradicionais no Brasil"></option>
-      <option value="Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil"></option>
-      <option value="O estigma associado às doenças mentais na sociedade brasileir"></option>
-      <option value="Democratização do acesso ao cinema no Brasil"></option>
-      <option value="Manipulação do comportamento do usuário pelo controle de dados na internet"></option>
-      <option value="Desafios para a formação educacional de surdos no Brasil"></option>
-      <option value="Caminhos para combater a intolerância religiosa no Brasil"></option>
-      <option value="A persistência da violência contra a mulher na sociedade brasileira"></option>
-      <option value="Publicidade infantil em questão no Brasil"></option>
-      </datalist>
-      
-      <label for="name">Título</label>
-      <input type="text" name="name" placeholder="(Opcional)">
-      <label for="message">Redação</label>
-      <textarea name="message"  placeholder="Escreva aqui sua redação..." required></textarea>
-      <button type="submit" data-button>Enviar</button>
-    </form>
-  </main>    
+        <header>
+          <div class="container1">
+            <div class="logo">
+              <img src="logo.png" alt="Logo" />
+            </div>
+
+            <div class="links">
+              <ul>
+                <li><a href="inicio.php">Início</a></li>
+                <li><a href="aulas.php">Vídeoaulas</a></li>
+                <li><a href="temas.php">Temas</a></li>
+                <li><a href="correcao.php">Correção</a></li>
+                <li><a href="">Histórico</a></li>
+              </ul>
+            </div>
+
+            <div class="overlay"></div>
+
+            <div class="hamburger-menu">
+              <div class="bar"></div>
+            </div>
+          </div>
+        </header>
+
+        <div class="form-container">
+          <div class="form-card">
+            <div class="form-header">
+              <h1 class="form-title">Correção de Redação</h1>
+              <p class="form-subtitle">Envie sua redação e receba uma correção detalhada baseada nos critérios do ENEM</p>
+            </div>
+
+            <form action="" method="POST" data-form>
+              <label for="list">
+                 Tema
+              </label>
+              <input 
+                class="form-control" 
+                list="datalistOptions" 
+                id="exampleDataList" 
+                placeholder="Escolha o tema da sua redação" 
+                name="list" 
+                required
+              >
+              <datalist id="datalistOptions">
+                <option value="Desafios para a valorização da herança africana no Brasil"></option>
+                <option value="Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil"></option>
+                <option value="Desafios para a valorização de comunidades e povos tradicionais no Brasil"></option>
+                <option value="Invisibilidade e registro civil: garantia de acesso à cidadania no Brasil"></option>
+                <option value="O estigma associado às doenças mentais na sociedade brasileira"></option>
+                <option value="Democratização do acesso ao cinema no Brasil"></option>
+                <option value="Manipulação do comportamento do usuário pelo controle de dados na internet"></option>
+                <option value="Desafios para a formação educacional de surdos no Brasil"></option>
+                <option value="Caminhos para combater a intolerância religiosa no Brasil"></option>
+                <option value="A persistência da violência contra a mulher na sociedade brasileira"></option>
+                <option value="Publicidade infantil em questão no Brasil"></option>
+              </datalist>
+              
+              <label for="name">
+                Título
+              </label>
+              <input 
+                type="text" 
+                name="name" 
+                id="name"
+                placeholder="Digite o título da sua redação (opcional)"
+              >
+              
+              <label for="message">
+                Sua Redação
+              </label>
+              <textarea 
+                name="message" 
+                id="message"
+                placeholder="Cole aqui o texto completo da sua redação para correção..." 
+                required
+              ></textarea>
+              
+              <button type="submit" data-button>Enviar para Correção
+              </button>
+            </form>
+
+            <div class="message-container">
+              <!-- Mensagens de sucesso/erro aparecerão aqui -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>    
   </body>
 </html>
