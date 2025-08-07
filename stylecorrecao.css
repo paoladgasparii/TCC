@@ -210,11 +210,13 @@ header .links {
   max-width: 1200px;
   border: 2px solid transparent;
   transition: all 0.3s ease;
+  box-shadow: 0 20px 45px rgba(111, 66, 193, 0.12);
+  border-color: rgba(111, 66, 193, 0.1);
 }
 
 .form-card:hover {
-  box-shadow: 0 20px 45px rgba(111, 66, 193, 0.12);
-  border-color: rgba(111, 66, 193, 0.1);
+  box-shadow: 0 30px 55px rgba(68, 31, 136, 0.12);
+  border-color: rgba(61, 12, 151, 0.425);
 }
 
 .form-header {
@@ -223,7 +225,7 @@ header .links {
 }
 
 .form-title {
-  font-size: 2.2rem;
+  font-size: 30px;
   font-weight: 700;
   color: var(--darkOne);
   margin-bottom: 10px;
@@ -264,7 +266,7 @@ select,
 textarea {
   margin-bottom: 25px;
   color: var(--lightOne);
-  background: #f8f9ff;
+  background: #f3f5ff;
   border: 2px solid transparent;
   border-radius: 15px;
   transition: all 0.3s ease;
@@ -285,6 +287,23 @@ textarea:focus {
 
 input[list] {
   cursor: pointer;
+  margin-bottom: 25px;
+  color: var(--lightOne);
+  background: #f3f5ff;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  min-height: 50px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+input[list]:hover{
+  outline: none;
+  border-color: var(--mainColor);
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+  background: white;
 }
 
 textarea {

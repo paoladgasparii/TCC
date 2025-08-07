@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Corrija Aí - Correção</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="stylecorrecao.css" />
@@ -57,7 +56,7 @@
                 class="form-control" 
                 list="datalistOptions" 
                 id="exampleDataList" 
-                placeholder="Escolha o tema da sua redação" 
+                placeholder=" Escolha o tema da sua redação" 
                 name="list" 
                 required
               >
@@ -91,11 +90,11 @@
               <textarea 
                 name="message" 
                 id="message"
-                placeholder="Cole aqui o texto completo da sua redação para correção..." 
+                placeholder="Escreva aqui o texto completo da sua redação para correção..." 
                 required
               ></textarea>
               
-              <button type="submit" data-button>Enviar para Correção
+              <button type="submit" data-button>Enviar
               </button>
             </form>
 
