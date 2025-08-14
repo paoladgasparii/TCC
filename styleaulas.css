@@ -79,7 +79,7 @@ header .container1 {
 }
 
 header .links {
-  margin: 0 11.1%;
+  margin: 0 8.1%;
   margin-top: 24px;
 }
 
@@ -535,6 +535,12 @@ header .links {
   background: #ccc;
   cursor: not-allowed;
   transform: none;
+}
+
+span2{
+  margin-left: 200px;
+  color: var(--mainColor); 
+  font-weight: 600;
 }
 
 /* Responsive Design */

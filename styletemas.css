@@ -79,7 +79,7 @@ body {
   }
   
   header .links {
-    margin: 0 13%;
+    margin: 0 10%;
   }
   
   .overlay {
@@ -386,6 +386,12 @@ body {
   
   .big-wrapper.dark .toggle-btn i:first-child {
     display: none;
+  }
+
+  span{
+    margin-left: 200px;
+    color: var(--mainColor); 
+    font-weight: 600;
   }
 
 @media screen and (max-width: 768px) {

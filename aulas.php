@@ -1,3 +1,9 @@
+<?php
+require_once 'verificar_sessao.php';
+verificar_login(); // Verifica se o usuário está logado
+$usuario = obter_usuario_logado();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,7 +36,8 @@
               <li><a href="aulas.php">Vídeoaulas</a></li>
               <li><a href="temas.php">Temas</a></li>
               <li><a href="correcao.php">Correção</a></li>
-              <li><a href="">Histórico</a></li>
+              <li><a href="historico.php">Histórico</a></li>
+              <li><a href="logout.php" style="color: #dc3545; margin-left: 360px;">Sair</a></li>
             </ul>
           </div>
 
