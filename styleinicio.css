@@ -79,7 +79,7 @@ header .container1 {
 }
 
 header .links {
-  margin: 0 13%;
+  margin: 0 10%;
 }
 
 .overlay {
@@ -285,6 +285,12 @@ header .links {
   left: 0;
   z-index: 100;
   animation: appear 1s 1 both;
+}
+
+span{
+  margin-left: 200px;
+  color: var(--mainColor); 
+  font-weight: 600;
 }
 
 @keyframes appear {

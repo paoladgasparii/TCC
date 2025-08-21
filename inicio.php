@@ -1,5 +1,10 @@
+<?php
+require_once 'verificar_sessao.php';
+verificar_login(); // Verifica se o usuário está logado
+$usuario = obter_usuario_logado();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8" />
@@ -27,7 +32,9 @@
               <li><a href="aulas.php">Vídeoaulas</a></li>
               <li><a href="temas.php">Temas</a></li>
               <li><a href="correcao.php">Correção</a></li>
-              <li><a href="">Histórico</a></li>
+              <li><a href="historico.php">Histórico</a></li>
+              <li><span style>Olá, <?php echo htmlspecialchars($usuario['nome']); ?>!</span></li>
+              <li><a href="logout.php" style="color: #dc3545;">Sair</a></li>
             </ul>
           </div>
 
@@ -65,7 +72,6 @@
   </main>
 
   <!-- JavaScript Files -->
-
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script src="scriptinicio.js"></script>
 </body>
