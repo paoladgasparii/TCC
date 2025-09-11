@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'texto' => $redacao,
             'data_envio' => date('Y-m-d H:i:s'),
             'status' => 'pendente',
+
             'posicao_fila' => count($_SESSION['redacoes']) + 1,
             'notas' => [
                 'c1' => 0,
@@ -39,7 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'nota_final' => 0,
             'comentarios' => '',
             'pontos_fortes' => '',
-            'pontos_melhoria' => ''
+            'pontos_melhoria' => '',
+            'posicao_fila' => count($_SESSION['redacoes']) + 1
+
         ];
         
         // Adicionar à sessão
@@ -71,6 +74,7 @@ function temaToSlug($tema) {
     
     return $map[$tema] ?? 'outro-tema';
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -180,7 +184,27 @@ function temaToSlug($tema) {
               </button>
             </form>
 
-
+            <!-- Estatísticas de redações enviadas -->
+            <?php if (!empty($_SESSION['redacoes'])): ?>
+            <div class="stats-container">
+              <h3>Suas Estatísticas</h3>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-number"><?php echo count($_SESSION['redacoes']); ?></span>
+                  <span class="stat-label">Redações Enviadas</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number"><?php echo count(array_filter($_SESSION['redacoes'], function($r) { return $r['status'] === 'pendente'; })); ?></span>
+                  <span class="stat-label">Pendentes</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number"><?php echo count(array_filter($_SESSION['redacoes'], function($r) { return $r['status'] === 'corrigida'; })); ?></span>
+                  <span class="stat-label">Corrigidas</span>
+                </div>
+              </div>
+              <a href="historico.php" class="btn view-history-btn">Ver Histórico Completo</a>
+            </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -198,6 +222,7 @@ function temaToSlug($tema) {
       // Contador de caracteres para a redação
       const textarea = document.getElementById('message');
       const maxChars = 3000; // Limite aproximado para redação ENEM
+      const maxChars = 2000; // Limite aproximado para redação ENEM
 
       function createCharCounter() {
         const counter = document.createElement('div');

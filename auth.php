@@ -27,6 +27,7 @@ if ($_POST['action'] == 'cadastro') {
     
     if (empty($email) || !validar_email($email)) {
         $erros[] = "E-mail válido é obrigatório";
+        $erros[] = "Email válido é obrigatório";
     }
     
     if (empty($senha) || !validar_senha($senha)) {
@@ -40,6 +41,7 @@ if ($_POST['action'] == 'cadastro') {
         
         if ($stmt->fetch()) {
             $erros[] = "Este e-mail já está cadastrado";
+            $erros[] = "Este email já está cadastrado";
         }
     }
     
@@ -87,6 +89,7 @@ if ($_POST['action'] == 'login') {
     // Validações básicas
     if (empty($email) || !validar_email($email)) {
         $erros[] = "E-mail válido é obrigatório";
+        $erros[] = "Email válido é obrigatório";
     }
     
     if (empty($senha)) {
@@ -111,6 +114,7 @@ if ($_POST['action'] == 'login') {
             exit();
         } else {
             $erros[] = "E-mail ou senha incorretos";
+            $erros[] = "Email ou senha incorretos";
         }
     }
     

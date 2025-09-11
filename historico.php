@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-date_default_timezone_set('America/Sao_Paulo');
-
 // Inicializar array de redações na sessão se não existir
 if (!isset($_SESSION['redacoes'])) {
     $_SESSION['redacoes'] = [];
@@ -12,52 +10,75 @@ $redacoes = $_SESSION['redacoes'];
 
 // Processar ações POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $redacao_id = $_POST['redacao_id'] ?? '';
-
-  // Cancelar correção (pendente)
-  if (isset($_POST['cancelar_correcao']) && !empty($redacao_id)) {
-      foreach ($_SESSION['redacoes'] as $key => $redacao) {
-          if ($redacao['id'] === $redacao_id) {
-              unset($_SESSION['redacoes'][$key]);
-              break;
-          }
-      }
-
-      $_SESSION['redacoes'] = array_values($_SESSION['redacoes']);
-      $redacoes = $_SESSION['redacoes'];
-
-      header('Location: historico.php');
-      exit;
-  }
-
-  // Excluir redação corrigida
-  if (isset($_POST['excluir_redacao']) && !empty($redacao_id)) {
-      foreach ($_SESSION['redacoes'] as $key => $redacao) {
-          if ($redacao['id'] === $redacao_id && $redacao['status'] === 'corrigida') {
-              unset($_SESSION['redacoes'][$key]);
-              break;
-          }
-      }
-
-      $_SESSION['redacoes'] = array_values($_SESSION['redacoes']);
-      $redacoes = $_SESSION['redacoes'];
-
-      header('Location: historico.php');
-      exit;
-  }
+    $redacao_id = $_POST['redacao_id'] ?? '';
+    
+    // Simular correção
+    if (isset($_POST['simular_correcao']) && !empty($redacao_id)) {
+        foreach ($_SESSION['redacoes'] as &$redacao) {
+            if ($redacao['id'] === $redacao_id) {
+                // Gerar notas aleatórias realísticas
+                $redacao['notas'] = [
+                    'c1' => rand(120, 200),
+                    'c2' => rand(120, 200),
+                    'c3' => rand(100, 200),
+                    'c4' => rand(120, 200),
+                    'c5' => rand(80, 200)
+                ];
+                
+                $redacao['nota_final'] = array_sum($redacao['notas']);
+                $redacao['status'] = 'corrigida';
+                
+                // Comentários baseados na nota
+                if ($redacao['nota_final'] >= 900) {
+                    $redacao['comentarios'] = 'Excelente redação! Demonstra domínio das competências avaliadas.';
+                    $redacao['pontos_fortes'] = 'Argumentação consistente, estrutura bem organizada, domínio da norma culta.';
+                    $redacao['pontos_melhoria'] = 'Continue praticando para manter este nível de excelência.';
+                } elseif ($redacao['nota_final'] >= 700) {
+                    $redacao['comentarios'] = 'Boa redação com argumentos válidos e estrutura adequada.';
+                    $redacao['pontos_fortes'] = 'Boa compreensão do tema, argumentos relevantes.';
+                    $redacao['pontos_melhoria'] = 'Aprimorar conectivos e diversificar repertório sociocultural.';
+                } else {
+                    $redacao['comentarios'] = 'Redação com potencial, mas precisa de melhorias.';
+                    $redacao['pontos_fortes'] = 'Compreensão básica do tema proposto.';
+                    $redacao['pontos_melhoria'] = 'Fortalecer argumentação, melhorar estrutura textual e domínio da norma culta.';
+                }
+                
+                break;
+            }
+        }
+        
+        // Atualizar array de redações
+        $redacoes = $_SESSION['redacoes'];
+        
+        // Redirect para evitar reenvio
+        header('Location: historico.php');
+        exit;
+    }
+    
+    // Cancelar correção
+    if (isset($_POST['cancelar_correcao']) && !empty($redacao_id)) {
+        foreach ($_SESSION['redacoes'] as $key => $redacao) {
+            if ($redacao['id'] === $redacao_id) {
+                unset($_SESSION['redacoes'][$key]);
+                break;
+            }
+        }
+        
+        // Reindexar array
+        $_SESSION['redacoes'] = array_values($_SESSION['redacoes']);
+        $redacoes = $_SESSION['redacoes'];
+        
+        // Redirect para evitar reenvio
+        header('Location: historico.php');
+        exit;
+    }
 }
 
-// Função para formatar data no horário de Brasília
+// Função para formatar data
 function formatarData($data) {
-  try {
-      $dt = new DateTime($data, new DateTimeZone('UTC')); // assume que veio em UTC
-      $dt->setTimezone(new DateTimeZone('America/Sao_Paulo')); // converte para Brasília
-      return $dt->format('d/m/Y H:i');
-  } catch (Exception $e) {
-      return $data; // fallback se não conseguir converter
-  }
+    $timestamp = strtotime($data);
+    return date('d/m/Y H:i', $timestamp);
 }
-
 
 // Função para converter tema em slug
 function temaToSlug($tema) {
@@ -241,7 +262,7 @@ function temaToSlug($tema) {
                   <div class="pendente-info">
                     <div class="tempo-estimado">
                       <i class="bi bi-hourglass-split"></i>
-                      <span>Tempo estimado: 24-48 horas</span>
+                      <span>Tempo estimado: 1 a 2 semanas</span>
                     </div>
                     <div class="posicao-fila">
                       <i class="bi bi-list-ol"></i>
@@ -253,23 +274,14 @@ function temaToSlug($tema) {
               </div>
               
               <div class="redacao-actions">
-              <?php if ($redacao['status'] === 'corrigida' && $redacao['nota_final'] > 0): ?>
-              <button class="action-btn view-btn" onclick="viewRedacao('<?php echo $redacao['id']; ?>')">
-                  <i class="bi bi-eye"></i> Ver Correção
+                <?php if ($redacao['status'] === 'corrigida' && $redacao['nota_final'] > 0): ?>
+                  <button class="action-btn view-btn" onclick="viewRedacao('<?php echo $redacao['id']; ?>')">
+                    <i class="bi bi-eye"></i> Ver Correção
                   </button>
-              <button class="action-btn download-btn" onclick="downloadPDF('<?php echo $redacao['id']; ?>')">
-                <i class="bi bi-download"></i> Download
-              </button>
-
-              <!-- Botão Excluir -->
-              <form method="POST" style="display:inline;">
-              <input type="hidden" name="redacao_id" value="<?php echo $redacao['id']; ?>">
-              <button type="submit" name="excluir_redacao" class="action-btn cancel-btn"
-                      onclick="return confirm('Tem certeza que deseja excluir esta redação?')">
-              <i class="bi bi-trash"></i> Excluir
-              </button>
-              </form>
-                  <?php else: ?>
+                  <button class="action-btn download-btn" onclick="downloadPDF('<?php echo $redacao['id']; ?>')">
+                    <i class="bi bi-download"></i> Download
+                  </button>
+                <?php else: ?>
                   <button class="action-btn view-btn" onclick="viewRedacao('<?php echo $redacao['id']; ?>')">
                     <i class="bi bi-eye"></i> Ver Redação
                   </button>
@@ -395,15 +407,9 @@ function temaToSlug($tema) {
     }
 
     function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) + 
-         ' ' + 
-         date.toLocaleTimeString('pt-BR', { 
-            hour: '2-digit', 
-            minute: '2-digit',
-            timeZone: 'America/Sao_Paulo'
-         });
-}
+      const date = new Date(dateString);
+      return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
+    }
 
     // Fechar modal clicando fora dele
     window.onclick = function(event) {
