@@ -33,6 +33,9 @@ $usuario = obter_usuario_logado();
               <li><a href="temas.php">Temas</a></li>
               <li><a href="correcao.php">Correção</a></li>
               <li><a href="historico.php">Histórico</a></li>
+              <?php if ($usuario['is_admin']): ?>
+                <li><a href="admin/index.php">Admin</a></li>
+              <?php endif; ?>
               <li><span style>Olá, <?php echo htmlspecialchars($usuario['nome']); ?>!</span></li>
               <li><a href="logout.php" style="color: #dc3545;">Sair</a></li>
             </ul>
@@ -71,7 +74,6 @@ $usuario = obter_usuario_logado();
     </div>
   </main>
 
-  <!-- JavaScript Files -->
   <script src="https://kit.fontawesome.com/a81368914c.js"></script>
   <script src="scriptinicio.js"></script>
 </body>

@@ -27,7 +27,6 @@ if ($_POST['action'] == 'cadastro') {
     
     if (empty($email) || !validar_email($email)) {
         $erros[] = "E-mail válido é obrigatório";
-        $erros[] = "Email válido é obrigatório";
     }
     
     if (empty($senha) || !validar_senha($senha)) {
@@ -41,7 +40,6 @@ if ($_POST['action'] == 'cadastro') {
         
         if ($stmt->fetch()) {
             $erros[] = "Este e-mail já está cadastrado";
-            $erros[] = "Este email já está cadastrado";
         }
     }
     
@@ -53,7 +51,7 @@ if ($_POST['action'] == 'cadastro') {
         
         if ($stmt->execute([$nome, $email, $senha_hash])) {
             // Buscar o usuário recém-criado para fazer login automático
-            $stmt = $pdo->prepare("SELECT id, nome, email FROM usuarios WHERE email = ?");
+            $stmt = $pdo->prepare("SELECT id, nome, email, is_admin FROM usuarios WHERE email = ?");
             $stmt->execute([$email]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
             
@@ -61,6 +59,7 @@ if ($_POST['action'] == 'cadastro') {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_nome'] = $usuario['nome'];
             $_SESSION['usuario_email'] = $usuario['email'];
+            $_SESSION['is_admin'] = $usuario['is_admin'];
             $_SESSION['logado'] = true;
             
             // Redirecionar para página inicial
@@ -89,7 +88,6 @@ if ($_POST['action'] == 'login') {
     // Validações básicas
     if (empty($email) || !validar_email($email)) {
         $erros[] = "E-mail válido é obrigatório";
-        $erros[] = "Email válido é obrigatório";
     }
     
     if (empty($senha)) {
@@ -98,7 +96,7 @@ if ($_POST['action'] == 'login') {
     
     // Verificar credenciais
     if (empty($erros)) {
-        $stmt = $pdo->prepare("SELECT id, nome, email, senha FROM usuarios WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT id, nome, email, senha, is_admin FROM usuarios WHERE email = ?");
         $stmt->execute([$email]);
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         
@@ -107,14 +105,18 @@ if ($_POST['action'] == 'login') {
             $_SESSION['usuario_id'] = $usuario['id'];
             $_SESSION['usuario_nome'] = $usuario['nome'];
             $_SESSION['usuario_email'] = $usuario['email'];
+            $_SESSION['is_admin'] = $usuario['is_admin'];
             $_SESSION['logado'] = true;
             
-            // Redirecionar para página inicial
-            header("Location: inicio.php");
+            // Redirecionar para o painel correto
+            if ($usuario['is_admin']) {
+                header("Location: admin/index.php");
+            } else {
+                header("Location: inicio.php");
+            }
             exit();
         } else {
             $erros[] = "E-mail ou senha incorretos";
-            $erros[] = "Email ou senha incorretos";
         }
     }
     

@@ -9,12 +9,20 @@ function verificar_login() {
     }
 }
 
+function verificar_admin() {
+    if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true || !$_SESSION['is_admin']) {
+        header("Location: ../login.php");
+        exit();
+    }
+}
+
 function obter_usuario_logado() {
     if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
         return [
             'id' => $_SESSION['usuario_id'],
             'nome' => $_SESSION['usuario_nome'],
-            'email' => $_SESSION['usuario_email']
+            'email' => $_SESSION['usuario_email'],
+            'is_admin' => $_SESSION['is_admin']
         ];
     }
     return null;
