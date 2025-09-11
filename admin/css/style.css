@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  --mainColor: #6f42c1;
+  --hoverColor: #47297e;
+  --backgroundColor: #ffffff;
+  --darkOne: #6f42c1;
+  --darkTwo: #45424b;
+  --lightOne: #2e2e2e;
+  --lightTwo: #535353;
+  --successColor: #10ac84;
+  --warningColor: #feca57;
+  --pendingColor: #ff9f43;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--backgroundColor);
+  color: var(--lightOne);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  background-color: var(--mainColor);
+  padding: 20px 0;
+  color: white;
+  margin-bottom: 30px;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+th {
+  background-color: #f8f9ff;
+  font-weight: 600;
+  color: var(--darkOne);
+}
+
+tr:hover {
+  background-color: #f5f7ff;
+}
+
+.status-pendente {
+  color: var(--pendingColor);
+  font-weight: 600;
+}
+
+.status-corrigida {
+  color: var(--successColor);
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  color: #fff !important;
+  background-color: var(--mainColor);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--hoverColor);
+}
+
+.btn-corrigir {
+  background-color: var(--successColor);
+}
+
+.btn-corrigir:hover {
+  background-color: #0e9d73;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--darkOne);
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+  background: white;
+  color: var(--lightOne);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--mainColor);
+  box-shadow: 0 0 0 3px rgba(111, 66, 193, 0.1);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.redacao-info {
+  background-color: #f8f9ff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.redacao-info h3 {
+  color: var(--darkOne);
+  margin-bottom: 10px;
+}

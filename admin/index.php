@@ -7,13 +7,13 @@ verificar_admin();
 <head>
     <meta charset="UTF-8">
     <title>Painel do Administrador</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <?php include 'header.php'; ?>
     <div class="container">
-        <h1>Bem-vindo ao Painel do Administrador</h1>
-        <p>Selecione uma opção no menu acima para gerenciar o conteúdo do site.</p>
+        <h2>Bem-vindo ao Painel do Administrador</h2>
+        <p>Selecione uma opção no menu para começar.</p>
     </div>
 </body>
 </html>
