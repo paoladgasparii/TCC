@@ -9,6 +9,12 @@ $stmt = $pdo->prepare("SELECT * FROM redacoes WHERE usuario_id = ? ORDER BY data
 $stmt->execute([$usuario['id']]);
 $redacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+// Função para formatar data
+function formatarData($data) {
+    $timestamp = strtotime($data);
+    return date('d/m/Y H:i', $timestamp);
+}
+
 // Função para converter tema em slug (usada pelos filtros)
 function temaToSlug($tema) {
     $map = [
@@ -78,25 +84,18 @@ function temaToSlug($tema) {
           <p class="hero-subtitle">Acompanhe todas as suas redações enviadas para correção</p>
         </div>
 
-        <div class="filters-section">
-          </div>
-
         <div class="redacoes-list">
           
           <?php if (empty($redacoes)): ?>
             <div class="empty-state">
-              <div class="empty-icon">
-                <i class="bi bi-file-text"></i>
-              </div>
+              <div class="empty-icon"><i class="bi bi-file-text"></i></div>
               <h3>Nenhuma redação encontrada</h3>
-              <p>Você ainda não enviou nenhuma redação para correção. Comece agora e acompanhe seu progresso!</p>
+              <p>Você ainda não enviou nenhuma redação para correção. Comece agora!</p>
               <a href="correcao.php" class="btn">Enviar primeira redação</a>
             </div>
           <?php else: ?>
-            
-            <?php foreach ($redacoes as $index => $redacao): ?>
+            <?php foreach ($redacoes as $redacao): ?>
             <div class="redacao-card status-<?php echo $redacao['status']; ?>" 
-                 data-status="<?php echo $redacao['status']; ?>" 
                  data-tema="<?php echo temaToSlug($redacao['tema']); ?>">
               
               <div class="redacao-header">
@@ -104,7 +103,7 @@ function temaToSlug($tema) {
                   <h3 class="redacao-titulo"><?php echo htmlspecialchars($redacao['titulo']); ?></h3>
                   <p class="redacao-tema"><?php echo htmlspecialchars($redacao['tema']); ?></p>
                   <span class="redacao-data">
-                    <i class="bi bi-calendar3"></i> Enviada em <?php echo date('d/m/Y H:i', strtotime($redacao['data_envio'])); ?>
+                    <i class="bi bi-calendar3"></i> Enviada em <?php echo formatarData($redacao['data_envio']); ?>
                   </span>
                 </div>
                 <div class="status-badge status-<?php echo $redacao['status']; ?>">
@@ -116,25 +115,14 @@ function temaToSlug($tema) {
                 </div>
               </div>
               
-              <div class="redacao-content">
-                
-                <?php if ($redacao['status'] === 'corrigida' && $redacao['nota_final'] > 0): ?>
-                  <div class="pontuacao-geral">
-                    <div class="nota-final">
-                      <span class="nota-numero"><?php echo $redacao['nota_final']; ?></span>
-                      <span class="nota-total">/1000</span>
-                    </div>
+              <?php if ($redacao['status'] === 'corrigida'): ?>
+                <div class="pontuacao-geral">
+                  <div class="nota-final">
+                    <span class="nota-numero"><?php echo $redacao['nota_final']; ?></span>
+                    <span class="nota-total">/1000</span>
                   </div>
-                <?php else: ?>
-                  <div class="pendente-info">
-                    <div class="tempo-estimado">
-                      <i class="bi bi-hourglass-split"></i>
-                      <span>Tempo estimado: 1 a 2 semanas</span>
-                    </div>
-                  </div>
-                <?php endif; ?>
-                
-              </div>
+                </div>
+              <?php endif; ?>
               
               <div class="redacao-actions">
                   <button class="action-btn view-btn" onclick="viewRedacao('<?php echo $redacao['id']; ?>')">
@@ -144,22 +132,23 @@ function temaToSlug($tema) {
               </div>
             </div>
             <?php endforeach; ?>
-            
           <?php endif; ?>
-        </div>
 
-        <div id="redacaoModal" class="modal" style="display: none;">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2 id="modalTitle"></h2>
-              <span class="close" onclick="closeModal()">&times;</span>
-            </div>
-            <div class="modal-body">
-              <div id="modalContent"></div>
-            </div>
+        </div>
+      </div>
+
+      <div id="redacaoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="modalTitle"></h2>
+            <span class="close" onclick="closeModal()">&times;</span>
+          </div>
+          <div class="modal-body">
+            <div id="modalContent"></div>
           </div>
         </div>
       </div>
+
     </div>
   </main>
 
@@ -167,10 +156,80 @@ function temaToSlug($tema) {
     const redacoes = <?php echo json_encode($redacoes); ?>;
 
     function viewRedacao(id) {
-        // ... (o restante do seu JavaScript continua o mesmo) ...
+        const redacao = redacoes.find(r => r.id === id);
+        if (!redacao) return;
+
+        const modal = document.getElementById('redacaoModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalContent = document.getElementById('modalContent');
+        
+        let contentHTML = `
+            <div class="modal-redacao">
+                <h3>${redacao.titulo}</h3>
+                <p><strong>Tema:</strong> ${redacao.tema}</p>
+                <p><strong>Data de envio:</strong> ${new Date(redacao.data_envio).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+        `;
+
+        if (redacao.status === 'corrigida') {
+            modalTitle.textContent = 'Correção Detalhada';
+            contentHTML += `
+                <div class="modal-pontuacao">
+                    <h4>Pontuação Final: ${redacao.nota_final}/1000</h4>
+                    <div class="modal-competencias">
+                        <div class="comp-item">C1: ${redacao.c1}/200</div>
+                        <div class="comp-item">C2: ${redacao.c2}/200</div>
+                        <div class="comp-item">C3: ${redacao.c3}/200</div>
+                        <div class="comp-item">C4: ${redacao.c4}/200</div>
+                        <div class="comp-item">C5: ${redacao.c5}/200</div>
+                    </div>
+                </div>
+                
+                <div class="modal-feedback">
+                    <h4>Comentários Gerais</h4>
+                    <p>${redacao.comentarios || 'Nenhum comentário.'}</p>
+                    
+                    <h4>Pontos Fortes</h4>
+                    <p>${redacao.pontos_fortes || 'Nenhum ponto forte destacado.'}</p>
+                    
+                    <h4>Pontos de Melhoria</h4>
+                    <p>${redacao.pontos_melhoria || 'Nenhum ponto de melhoria destacado.'}</p>
+                </div>
+            `;
+        } else {
+            modalTitle.textContent = 'Redação Pendente';
+            contentHTML += `<p><strong>Status:</strong> Aguardando correção</p>`;
+        }
+        
+        contentHTML += `
+            <div class="modal-texto">
+                <h4>Texto da Redação</h4>
+                <div class="texto-redacao">${redacao.texto.replace(/\n/g, '<br>')}</div>
+            </div>
+          </div>
+        `;
+      
+        modalContent.innerHTML = contentHTML;
+        modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('redacaoModal').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('redacaoModal');
+        if (event.target == modal) {
+            closeModal();
+        }
     }
     
-    // ... (o restante do seu JavaScript continua o mesmo) ...
+    // Menu hamburger
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const bigWrapper = document.querySelector('.big-wrapper');
+
+    hamburgerMenu.addEventListener('click', () => {
+      bigWrapper.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
