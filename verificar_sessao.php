@@ -18,9 +18,12 @@ function verificar_admin() {
 
 function obter_usuario_logado() {
     if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
+        // Extrai o primeiro nome do nome completo armazenado na sessão
+        $primeiro_nome = explode(' ', $_SESSION['usuario_nome'])[0];
+
         return [
             'id' => $_SESSION['usuario_id'],
-            'nome' => $_SESSION['usuario_nome'],
+            'nome' => $primeiro_nome,
             'email' => $_SESSION['usuario_email'],
             'is_admin' => $_SESSION['is_admin']
         ];

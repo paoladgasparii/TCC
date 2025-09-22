@@ -55,9 +55,12 @@ if ($_POST['action'] == 'cadastro') {
             $stmt->execute([$email]);
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
             
+            // Extrai o primeiro nome
+            $primeiro_nome = explode(' ', $usuario['nome'])[0];
+            
             // Criar sessão
             $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_nome'] = $primeiro_nome; // Salva apenas o primeiro nome
             $_SESSION['usuario_email'] = $usuario['email'];
             $_SESSION['is_admin'] = $usuario['is_admin'];
             $_SESSION['logado'] = true;
@@ -101,9 +104,12 @@ if ($_POST['action'] == 'login') {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         
         if ($usuario && password_verify($senha, $usuario['senha'])) {
+            // Extrai o primeiro nome
+            $primeiro_nome = explode(' ', $usuario['nome'])[0];
+
             // Login bem-sucedido
             $_SESSION['usuario_id'] = $usuario['id'];
-            $_SESSION['usuario_nome'] = $usuario['nome'];
+            $_SESSION['usuario_nome'] = $primeiro_nome; // Salva apenas o primeiro nome
             $_SESSION['usuario_email'] = $usuario['email'];
             $_SESSION['is_admin'] = $usuario['is_admin'];
             $_SESSION['logado'] = true;
