@@ -2,7 +2,6 @@
     <div class="container">
         <h1>
             <img src="../logo.png" alt="Logo" class="admin-logo">
-            Painel do Administrador
         </h1>
         <nav>
             <ul>

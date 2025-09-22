@@ -706,7 +706,9 @@
 
 .notification.warning {
   border-left-color: var(--warningColor);
-}@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --mainColor: #6f42c1;
@@ -795,6 +797,7 @@ header h1 {
 .admin-logo {
   width: 180px;
   height: auto;
+  filter: brightness(0) invert(1); /* Torna a logo branca */
 }
 
 nav ul {
@@ -825,25 +828,20 @@ nav a:hover {
 }
 
 /* Main Content */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--darkOne);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 h2 {
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--darkOne);
   margin-bottom: 30px;
   text-align: center;
-  position: relative;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(135deg, var(--mainColor), var(--hoverColor));
-  border-radius: 2px;
 }
 
 /* Table Styles */
@@ -1225,7 +1223,7 @@ input[type="number"]:focus {
     gap: 15px;
   }
 
-  h2 {
+  h1, h2 {
     font-size: 1.8rem;
   }
 
@@ -1291,7 +1289,7 @@ input[type="number"]:focus {
 }
 
 @media (max-width: 480px) {
-  h2 {
+  h1, h2 {
     font-size: 1.5rem;
   }
 
@@ -1302,30 +1300,5 @@ input[type="number"]:focus {
   input, textarea, select {
     padding: 12px 15px;
     font-size: 14px;
-  }
-}
-
-/* Dark mode support (opcional) */
-@media (prefers-color-scheme: dark) {
-  body {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: #e0e0e0;
-  }
-
-  .redacao-info,
-  .correcao-details,
-  .texto-redacao,
-  table {
-    background: #2d2d44;
-  }
-
-  input, textarea, select {
-    background: #3a3a5c;
-    color: #e0e0e0;
-    border-color: #4a4a6a;
-  }
-
-  th {
-    background: linear-gradient(135deg, #3a3a5c, #2d2d44);
   }
 }

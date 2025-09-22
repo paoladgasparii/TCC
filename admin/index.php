@@ -13,9 +13,6 @@ $redacoes_pendentes = $stmt->fetch()['total'];
 $stmt = $pdo->query("SELECT COUNT(*) as total FROM redacoes WHERE status = 'corrigida'");
 $redacoes_corrigidas = $stmt->fetch()['total'];
 
-$stmt = $pdo->query("SELECT COUNT(DISTINCT usuario_id) as total FROM redacoes");
-$usuarios_ativos = $stmt->fetch()['total'];
-
 // Redações Recentes (últimas 5)
 $stmt = $pdo->query("SELECT * FROM redacoes ORDER BY data_envio DESC LIMIT 5");
 $redacoes_recentes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -79,7 +76,7 @@ function formatarData($data) {
     <div class="container">
         <!-- Welcome Section -->
         <div class="welcome-section">
-            <h2><i class="bi bi-speedometer2"></i> Dashboard do Administrador</h2>
+            <h2>Painel do Administrador</h2>
             <p class="welcome-text">Bem-vindo ao painel de controle. Aqui você pode acompanhar todas as atividades do sistema.</p>
         </div>
 
@@ -120,21 +117,11 @@ function formatarData($data) {
                     </span>
                 </div>
             </div>
-
-            <div class="stat-card usuarios">
-                <div class="stat-icon">
-                    <i class="bi bi-people"></i>
-                </div>
-                <div class="stat-content">
-                    <h3><?php echo number_format($usuarios_ativos); ?></h3>
-                    <p>Usuários Ativos</p>
-                </div>
-            </div>
         </div>
 
         <!-- Quick Actions -->
         <div class="quick-actions-section">
-            <h3><i class="bi bi-lightning"></i> Ações Rápidas</h3>
+            <h3>Ações Rápidas</h3>
             <div class="quick-actions-grid">
                 <a href="redacoes.php" class="action-card">
                     <i class="bi bi-list-check"></i>
@@ -146,10 +133,6 @@ function formatarData($data) {
                     <?php if($redacoes_pendentes > 0): ?>
                         <span class="badge"><?php echo $redacoes_pendentes; ?></span>
                     <?php endif; ?>
-                </a>
-                <a href="#relatorios" class="action-card">
-                    <i class="bi bi-graph-up"></i>
-                    <span>Relatórios</span>
                 </a>
                 <a href="../inicio.php" class="action-card" target="_blank">
                     <i class="bi bi-eye"></i>
@@ -241,7 +224,7 @@ function formatarData($data) {
             <!-- Popular Themes -->
             <div class="dashboard-card themes">
                 <div class="card-header">
-                    <h3><i class="bi bi-tags"></i> Temas Populares</h3>
+                    <h3><i class="bi bi-list-stars"></i> Temas Populares</h3>
                 </div>
                 <div class="card-content">
                     <?php if (empty($temas_populares)): ?>
@@ -263,5 +246,6 @@ function formatarData($data) {
             </div>
 
         </div>
+    </div>
 </body>
 </html>
