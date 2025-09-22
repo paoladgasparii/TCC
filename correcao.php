@@ -1,4 +1,5 @@
 <?php
+localdate_default_timezone_set('America/Sao_Paulo');
 require_once 'verificar_sessao.php';
 require_once 'config.php';
 verificar_login();

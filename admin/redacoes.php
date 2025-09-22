@@ -46,10 +46,12 @@ $redacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </span>
                             </td>
                             <td>
+                                <div class="actions-cell">
                                 <a href="ver_redacao.php?id=<?php echo $redacao['id']; ?>" class="btn">Ver</a>
                                 <?php if ($redacao['status'] === 'pendente'): ?>
                                     <a href="corrigir_redacao.php?id=<?php echo $redacao['id']; ?>" class="btn btn-corrigir">Corrigir</a>
                                 <?php endif; ?>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
