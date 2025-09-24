@@ -12,7 +12,7 @@ $redacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Função para formatar data
 function formatarData($data) {
     $timestamp = strtotime($data);
-    return date('d/m/Y H:i', $timestamp);
+    return date('d/m/Y', $timestamp);
 }
 
 // Função para converter tema em slug (usada pelos filtros)

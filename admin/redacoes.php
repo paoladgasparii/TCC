@@ -39,7 +39,7 @@ $redacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <td><?php echo htmlspecialchars($redacao['aluno_nome']); ?></td>
                             <td><?php echo htmlspecialchars($redacao['titulo']); ?></td>
                             <td><?php echo htmlspecialchars($redacao['tema']); ?></td>
-                            <td><?php echo date('d/m/Y H:i', strtotime($redacao['data_envio'])); ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($redacao['data_envio'])); ?></td>
                             <td>
                                 <span class="status-<?php echo $redacao['status']; ?>">
                                     <?php echo ucfirst($redacao['status']); ?>

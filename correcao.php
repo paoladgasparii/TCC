@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $messageType = 'error';
     } else {
         $id = uniqid('redacao_', true);
-        $data_envio = date('Y-m-d H:i:s');
 
         $stmt = $pdo->prepare(
             "INSERT INTO redacoes (id, usuario_id, aluno_nome, tema, titulo, texto, data_envio) VALUES (?, ?, ?, ?, ?, ?, ?)"

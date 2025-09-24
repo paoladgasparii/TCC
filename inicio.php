@@ -36,8 +36,7 @@ $usuario = obter_usuario_logado();
               <?php if ($usuario['is_admin']): ?>
                 <li><a href="admin/index.php">Admin</a></li>
               <?php endif; ?>
-              <li><span style>Olá, <?php echo htmlspecialchars($usuario['nome']); ?>!</span></li>
-              <li><a href="logout.php" style="color: #dc3545;">Sair</a></li>
+              <li><a href="logout.php" style="color: #dc3545; margin-left: 360px;">Sair</a></li>
             </ul>
           </div>
 
