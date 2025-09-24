@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 24/09/2025 às 15:16
+-- Tempo de geração: 24/09/2025 às 18:30
 -- Versão do servidor: 9.1.0
 -- Versão do PHP: 8.3.14
 
@@ -29,43 +29,37 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `redacoes`;
 CREATE TABLE IF NOT EXISTS `redacoes` (
-  `id` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `usuario_id` int NOT NULL,
-  `aluno_nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `tema` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `titulo` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `texto` text COLLATE utf8mb4_general_ci NOT NULL,
+  `aluno_nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `tema` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `titulo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `texto` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `data_envio` datetime NOT NULL,
-  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pendente',
+  `status` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'pendente',
   `c1` int DEFAULT '0',
   `c2` int DEFAULT '0',
   `c3` int DEFAULT '0',
   `c4` int DEFAULT '0',
   `c5` int DEFAULT '0',
   `nota_final` int DEFAULT '0',
-  `comentarios` text COLLATE utf8mb4_general_ci,
-  `pontos_fortes` text COLLATE utf8mb4_general_ci,
-  `pontos_melhoria` text COLLATE utf8mb4_general_ci,
+  `comentarios` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `pontos_fortes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `pontos_melhoria` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`),
   KEY `usuario_id` (`usuario_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Estrutura para tabela `temas`
+-- Despejando dados para a tabela `redacoes`
 --
 
-DROP TABLE IF EXISTS `temas`;
-CREATE TABLE IF NOT EXISTS `temas` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `descricao` text COLLATE utf8mb4_general_ci NOT NULL,
-  `imagem` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `textos_motivadores` text COLLATE utf8mb4_general_ci NOT NULL,
-  `ano` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `redacoes` (`id`, `usuario_id`, `aluno_nome`, `tema`, `titulo`, `texto`, `data_envio`, `status`, `c1`, `c2`, `c3`, `c4`, `c5`, `nota_final`, `comentarios`, `pontos_fortes`, `pontos_melhoria`) VALUES
+('redacao_68d42816920429.36054170', 4, 'Lorena', 'Democratização do acesso ao cinema no Brasil', '', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-09-24 00:00:00', 'corrigida', 200, 120, 200, 160, 200, 880, 'nenhum', 'nenhum', 'nenhum'),
+('redacao_68d4281b5dd453.44223057', 4, 'Lorena', 'A persistência da violência contra a mulher na sociedade brasileira', '', 'bbbbbbbbbbbbbbbbbbbbbbbbbbb', '2025-09-24 00:00:00', 'pendente', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
+('redacao_68d42aab201594.29104214', 5, 'João', 'Publicidade infantil em questão no Brasil', '', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', '2025-09-24 00:00:00', 'pendente', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
+('redacao_68d42ab1bc6877.05764589', 5, 'João', 'Publicidade infantil em questão no Brasil', '', 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb', '2025-09-24 00:00:00', 'pendente', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
+('redacao_68d430a05b7116.07884610', 4, 'Lorena', 'Desafios para a formação educacional de surdos no Brasil', '', 'aAAAAAAAAAAAAAAAAAA', '2025-09-24 00:00:00', 'pendente', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -76,9 +70,9 @@ CREATE TABLE IF NOT EXISTS `temas` (
 DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE IF NOT EXISTS `usuarios` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `email` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `senha` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `senha` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `data_cadastro` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),

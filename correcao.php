@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $messageType = 'error';
     } else {
         $id = uniqid('redacao_', true);
+        
+        $data_envio = date('Y-m-d'); 
 
         $stmt = $pdo->prepare(
             "INSERT INTO redacoes (id, usuario_id, aluno_nome, tema, titulo, texto, data_envio) VALUES (?, ?, ?, ?, ?, ?, ?)"
@@ -60,7 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <li><a href="temas.php">Temas</a></li>
                 <li><a href="correcao.php">Correção</a></li>
                 <li><a href="historico.php">Histórico</a></li>
+                <?php if ($usuario['is_admin']): ?>
+                <li><a href="admin/index.php">Admin</a></li>
+                <?php endif; ?>
                 <li><a href="logout.php" style="color: #dc3545; margin-left: 360px;">Sair</a></li>
+
               </ul>
             </div>
             <div class="hamburger-menu">

@@ -66,7 +66,11 @@ function temaToSlug($tema) {
               <li><a href="temas.php">Temas</a></li>
               <li><a href="correcao.php">Correção</a></li>
               <li><a href="historico.php">Histórico</a></li>
+              <?php if ($usuario['is_admin']): ?>
+                <li><a href="admin/index.php">Admin</a></li>
+              <?php endif; ?>
               <li><a href="logout.php" style="color: #dc3545; margin-left: 360px;">Sair</a></li>
+              
             </ul>
           </div>
 
@@ -167,7 +171,7 @@ function temaToSlug($tema) {
             <div class="modal-redacao">
                 <h3>${redacao.titulo}</h3>
                 <p><strong>Tema:</strong> ${redacao.tema}</p>
-                <p><strong>Data de envio:</strong> ${new Date(redacao.data_envio).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+                <p><strong>Data de envio:</strong> ${new Date(redacao.data_envio).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' })}</p>
         `;
 
         if (redacao.status === 'corrigida') {

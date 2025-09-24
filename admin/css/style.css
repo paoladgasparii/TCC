@@ -1301,3 +1301,57 @@ input[type="number"]:focus {
     font-size: 14px;
   }
 }
+
+/* ... (todo o seu CSS existente) ... */
+
+/* Estilos para a página de gerenciamento */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.page-header h2 {
+  margin: 0;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, var(--successColor), #0e9d73);
+  box-shadow: 0 4px 15px rgba(16, 172, 132, 0.3);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, var(--errorColor), #c0392b);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.actions-cell {
+  display: flex;
+  gap: 10px;
+}
+
+
+.status-admin::before {
+  font-size: 14px;
+}
+
+
+.status-aluno::before {
+  font-size: 14px;
+}
+
+/* Responsividade para tabelas */
+@media screen and (max-width: 768px) {
+td:before {
+  content: attr(data-label);
+  position: absolute;
+  left: 10px;
+  width: 45%;
+  padding-right: 10px;
+  white-space: nowrap;
+  font-weight: 600;
+  color: var(--darkOne);
+  text-align: left;
+}
+}

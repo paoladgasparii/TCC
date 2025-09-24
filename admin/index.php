@@ -58,8 +58,9 @@ function temaAbreviado($tema) {
     return implode(' ', array_slice($palavras, 0, 4)) . (count($palavras) > 4 ? '...' : '');
 }
 
+// Função de formatar data CORRIGIDA
 function formatarData($data) {
-    return date('d/m/Y H:i', strtotime($data));
+    return date('d/m/Y', strtotime($data));
 }
 ?>
 <!DOCTYPE html>
@@ -74,13 +75,11 @@ function formatarData($data) {
     <?php include 'header.php'; ?>
     
     <div class="container">
-        <!-- Welcome Section -->
         <div class="welcome-section">
             <h2>Painel do Administrador</h2>
             <p class="welcome-text">Bem-vindo ao painel de controle. Aqui você pode acompanhar todas as atividades do sistema.</p>
         </div>
 
-        <!-- Statistics Cards -->
         <div class="stats-grid">
             <div class="stat-card total-redacoes">
                 <div class="stat-icon">
@@ -119,7 +118,6 @@ function formatarData($data) {
             </div>
         </div>
 
-        <!-- Quick Actions -->
         <div class="quick-actions-section">
             <h3>Ações Rápidas</h3>
             <div class="quick-actions-grid">
@@ -141,9 +139,7 @@ function formatarData($data) {
             </div>
         </div>
 
-        <!-- Main Content Grid -->
         <div class="dashboard-grid">
-            <!-- Recent Essays -->
             <div class="dashboard-card recent-essays">
                 <div class="card-header">
                     <h3><i class="bi bi-clock"></i> Redações Recentes</h3>
@@ -180,7 +176,6 @@ function formatarData($data) {
                 </div>
             </div>
 
-            <!-- Performance Metrics -->
             <?php if ($redacoes_corrigidas > 0): ?>
             <div class="dashboard-card performance">
                 <div class="card-header">
@@ -221,7 +216,6 @@ function formatarData($data) {
             </div>
             <?php endif; ?>
 
-            <!-- Popular Themes -->
             <div class="dashboard-card themes">
                 <div class="card-header">
                     <h3><i class="bi bi-list-stars"></i> Temas Populares</h3>
