@@ -764,7 +764,6 @@ header::before {
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
   background-size: 20px 20px;
   animation: float 20s linear infinite;
 }
@@ -908,7 +907,7 @@ tr:last-child td {
 }
 
 .status-pendente::before {
-  content: '⏱️';
+  content: '🕓';
   font-size: 14px;
 }
 
@@ -919,7 +918,7 @@ tr:last-child td {
 }
 
 .status-corrigida::before {
-  content: '✅';
+  content: '✔️';
   font-size: 14px;
 }
 
