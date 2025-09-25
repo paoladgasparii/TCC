@@ -52,19 +52,18 @@ $usuario = obter_usuario_logado();
         </div>
       </header>
 
-        <!-- Lessons Grid -->
         <div class="lessons-grid">
-          <!-- Aula 1 - Concluída -->
+          
           <div class="lesson-card">
-            <div class="lesson-header">
+            <div class="lesson-header1">
               <div class="lesson-meta">
-                <span class="lesson-number">Aula 01</span>
                 <span class="lesson-duration">
                   <i class="bi bi-clock"></i> 15:30
                 </span>
               </div>
               <div class="play-icon">
-                <i class="bi bi-play-fill"></i>
+              <button class="start-btn" onclick="window.location.href='aulas php/aula1.php'">
+              <i class="bi bi-play-fill"></i>
               </div>
             </div>
             <div class="lesson-content">
@@ -87,17 +86,16 @@ $usuario = obter_usuario_logado();
             </div>
           </div>
 
-          <!-- Aula 2 - Disponível -->
           <div class="lesson-card">
-            <div class="lesson-header">
+            <div class="lesson-header2">
               <div class="lesson-meta">
-                <span class="lesson-number">Aula 02</span>
                 <span class="lesson-duration">
                   <i class="bi bi-clock"></i> 18:45
                 </span>
               </div>
               <div class="play-icon">
-                <i class="bi bi-play-fill"></i>
+              <button class="start-btn" onclick="window.location.href='aulas php/aula1.php'">
+              <i class="bi bi-play-fill"></i>
               </div>
             </div>
             <div class="lesson-content">
@@ -120,17 +118,16 @@ $usuario = obter_usuario_logado();
             </div>
           </div>
 
-          <!-- Aula 3 - Bloqueada -->
           <div class="lesson-card">
-            <div class="lesson-header">
+            <div class="lesson-header3">
               <div class="lesson-meta">
-                <span class="lesson-number">Aula 03</span>
                 <span class="lesson-duration">
                   <i class="bi bi-clock"></i> 22:15
                 </span>
               </div>
               <div class="play-icon">
-                <i class="bi bi-play-fill"></i>
+              <button class="start-btn" onclick="window.location.href='aulas php/aula1.php'">
+              <i class="bi bi-play-fill"></i>
               </div>
             </div>
             <div class="lesson-content">
@@ -153,17 +150,16 @@ $usuario = obter_usuario_logado();
             </div>
           </div>
 
-          <!-- Aula 4 - Bloqueada -->
           <div class="lesson-card">
-            <div class="lesson-header">
+            <div class="lesson-header4">
               <div class="lesson-meta">
-                <span class="lesson-number">Aula 04</span>
                 <span class="lesson-duration">
                   <i class="bi bi-clock"></i> 16:30
                 </span>
               </div>
               <div class="play-icon">
-                <i class="bi bi-play-fill"></i>
+              <button class="start-btn" onclick="window.location.href='aulas php/aula1.php'">
+              <i class="bi bi-play-fill"></i>
               </div>
             </div>
             <div class="lesson-content">
@@ -185,17 +181,16 @@ $usuario = obter_usuario_logado();
             </div>
           </div>
 
-          <!-- Aula 5 - Bloqueada -->
           <div class="lesson-card">
-            <div class="lesson-header">
+            <div class="lesson-header5">
               <div class="lesson-meta">
-                <span class="lesson-number">Aula 05</span>
                 <span class="lesson-duration">
                   <i class="bi bi-clock"></i> 19:20
                 </span>
               </div>
               <div class="play-icon">
-                <i class="bi bi-play-fill"></i>
+              <button class="start-btn" onclick="window.location.href='aulas php/aula1.php'">
+              <i class="bi bi-play-fill"></i>
               </div>
             </div>
             <div class="lesson-content">
@@ -217,17 +212,16 @@ $usuario = obter_usuario_logado();
             </div>
           </div>
 
-          <!-- Aula 6 - Bloqueada -->
           <div class="lesson-card">
-            <div class="lesson-header">
+            <div class="lesson-header6">
               <div class="lesson-meta">
-                <span class="lesson-number">Aula 06</span>
                 <span class="lesson-duration">
                   <i class="bi bi-clock"></i> 21:10
                 </span>
               </div>
               <div class="play-icon">
-                <i class="bi bi-play-fill"></i>
+              <button class="start-btn" onclick="window.location.href='aulas php/aula1.php'">
+              <i class="bi bi-play-fill"></i>
               </div>
             </div>
             <div class="lesson-content">

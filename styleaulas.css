@@ -399,11 +399,60 @@ header .links {
   pointer-events: none;
 }
 
-.lesson-header {
-  background: linear-gradient(135deg, #f8f9ff, #e8ecff);
-  padding: 35px;
+.lesson-header1 {
+  background-image: url('capaaula1.jpeg');
+  background-size: 510px 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px;
   position: relative;
 }
+
+.lesson-header2 {
+  background-image: url('capaaula1.jpeg');
+  background-size: 510px 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px;
+  position: relative;
+}
+
+.lesson-header3 {
+  background-image: url('capaaula1.jpeg');
+  background-size: 510px 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px;
+  position: relative;
+}
+
+.lesson-header4 {
+  background-image: url('capaaula1.jpeg');
+  background-size: 510px 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px;
+  position: relative;
+}
+
+.lesson-header5 {
+  background-image: url('capaaula1.jpeg');
+  background-size: 510px 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px;
+  position: relative;
+}
+
+.lesson-header6 {
+  background-image: url('capaaula1.jpeg');
+  background-size: 510px 260px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px;
+  position: relative;
+}
+
 
 .lesson-meta {
   display: flex;
@@ -422,11 +471,14 @@ header .links {
 }
 
 .lesson-duration {
-  color: var(--lightTwo);
-  font-size: 0.9rem;
-  display: flex;
-  align-items: center;
-  gap: 5px;
+  position: absolute;
+  top: 15px; /* Distância do topo */
+  right: 15px; /* Distância da direita */
+  color: rgb(34, 34, 34); /* Cor do texto */
+  padding: 5px 10px; /* Espaçamento interno */
+  border-radius: 12px; /* Bordas arredondadas */
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .play-icon {
@@ -518,8 +570,8 @@ header .links {
   background: var(--mainColor);
   color: white;
   border: none;
-  padding: 8px 20px;
-  border-radius: 18px;
+  padding: 15px 20px;
+  border-radius: 30px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
