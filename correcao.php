@@ -8,11 +8,15 @@ $message = '';
 $messageType = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $tema = trim($_POST['list'] ?? '');
+    $temaSelecionado = trim($_POST['list'] ?? '');
+    $temaLivre = trim($_POST['tema_livre_input'] ?? '');
     $titulo = trim($_POST['name'] ?? '');
     $redacao_texto = trim($_POST['message'] ?? '');
 
-    if (empty($tema) || empty($redacao_texto)) {
+    $temaFinal = ($temaSelecionado === 'Tema Livre' && !empty($temaLivre)) ? $temaLivre : $temaSelecionado;
+
+
+    if (empty($temaFinal) || empty($redacao_texto)) {
         $message = 'Por favor, preencha o tema e o texto da redação.';
         $messageType = 'error';
     } else {
@@ -24,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             "INSERT INTO redacoes (id, usuario_id, aluno_nome, tema, titulo, texto, data_envio) VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
 
-        if ($stmt->execute([$id, $usuario['id'], $usuario['nome'], $tema, $titulo, $redacao_texto, $data_envio])) {
+        if ($stmt->execute([$id, $usuario['id'], $usuario['nome'], $temaFinal, $titulo, $redacao_texto, $data_envio])) {
             $message = 'Redação enviada com sucesso! Você pode acompanhar o status na aba Histórico.';
             $messageType = 'success';
         } else {
@@ -92,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <label for="list">Tema</label>
               <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder=" Escolha o tema da sua redação" name="list" required>
               <datalist id="datalistOptions">
+                <option value="Tema Livre"></option>
                 <option value="Desafios para a valorização da herança africana no Brasil"></option>
                 <option value="Desafios para o enfrentamento da invisibilidade do trabalho de cuidado realizado pela mulher no Brasil"></option>
                 <option value="Desafios para a valorização de comunidades e povos tradicionais no Brasil"></option>
@@ -105,6 +110,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="Publicidade infantil em questão no Brasil"></option>
               </datalist>
               
+              <div id="tema-livre-div" style="display: none; margin-top: 15px;">
+                <label for="tema_livre_input">Digite seu Tema</label>
+                <input type="text" name="tema_livre_input" id="tema_livre_input" placeholder="Digite o tema da sua redação">
+              </div>
+
               <label for="name">Título</label>
               <input type="text" name="name" id="name" placeholder="Digite o título da sua redação (opcional)">
               
@@ -123,6 +133,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       hamburgerMenu.addEventListener('click', () => {
         bigWrapper.classList.toggle('active');
+      });
+
+      const temaInput = document.getElementById('exampleDataList');
+      const temaLivreDiv = document.getElementById('tema-livre-div');
+      const temaLivreInput = document.getElementById('tema_livre_input');
+
+      temaInput.addEventListener('input', function() {
+          if (temaInput.value === 'Tema Livre') {
+              temaLivreDiv.style.display = 'block';
+              temaLivreInput.required = true;
+          } else {
+              temaLivreDiv.style.display = 'none';
+              temaLivreInput.required = false;
+          }
       });
     </script>
   </body>

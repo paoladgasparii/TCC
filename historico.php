@@ -28,10 +28,15 @@ function temaToSlug($tema) {
         'Desafios para a formação educacional de surdos no Brasil' => 'educacao-surdos',
         'Caminhos para combater a intolerância religiosa no Brasil' => 'intolerancia-religiosa',
         'A persistência da violência contra a mulher na sociedade brasileira' => 'violencia-mulher',
-        'Publicidade infantil em questão no Brasil' => 'publicidade-infantil'
+        'Publicidade infantil em questão no Brasil' => 'publicidade-infantil',
+        'Tema Livre' => 'tema-livre'
     ];
     
-    return $map[$tema] ?? 'outro-tema';
+    if (isset($map[$tema])) {
+        return $map[$tema];
+    }
+    
+    return 'tema-livre';
 }
 ?>
 <!DOCTYPE html>
